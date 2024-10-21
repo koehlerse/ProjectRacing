@@ -337,13 +337,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 2, z: -6.56}
+  m_LocalRotation: {x: 0.078418985, y: 0.65757006, z: 0.069113426, w: 0.7461068}
+  m_LocalPosition: {x: -8.364, y: 0.76, z: 1.683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1739195527}
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 1.497, y: 82.938, z: 11.908}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,11 +415,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7365846148470993579, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
   m_PrefabInstance: {fileID: 1529173130712046683}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1739195527 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
-  m_PrefabInstance: {fileID: 1529173130712046683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1739195528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +432,9 @@ MonoBehaviour:
   wheelRL: {fileID: 458116549}
   wheelRR: {fileID: 1142182709}
   torque: 350
+  maxSteeringAngle: 30
+  wheelBase: 3.8
+  trackWidth: 2.2
 --- !u!114 &1861966846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3288573119341002132, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
@@ -604,16 +602,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3288573119341002132, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: gripFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555454001221699837, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: gripFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327021734556318825, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: gripFactor
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7365846148470993579, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       propertyPath: m_Name
       value: Corvette
       objectReference: {fileID: 0}
+    - target: {fileID: 8635806775761395604, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: gripFactor
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 963194228}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7365846148470993579, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       insertIndex: -1
@@ -625,4 +636,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 705507995}
   - {fileID: 2106029797}
+  - {fileID: 963194228}
   - {fileID: 1529173130712046683}
