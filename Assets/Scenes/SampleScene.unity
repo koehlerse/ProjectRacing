@@ -791,13 +791,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -0.86, y: 2.15, z: -4.13}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 12.9, y: 1.87, z: -0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1433132140}
-  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+  m_Father: {fileID: 1739195531}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,11 +853,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780eed952a9f2fd44a9a3f348948e146, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1433132140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2061778379525531465, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
-  m_PrefabInstance: {fileID: 1529173130712046683}
+--- !u!1 &1430570611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430570612}
+  m_Layer: 0
+  m_Name: CenterOfMass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1430570612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430570611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1739195531}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1551961781 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5555454001221699837, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
@@ -893,7 +919,8 @@ MonoBehaviour:
   maxSteeringAngle: 30
   wheelBase: 2.657
   trackWidth: 1.9
-  brakeForce: 100
+  centerOfMass: {fileID: 1430570612}
+  brakeForce: 400
   maxRPM: 6000
   idleRPM: 1000
   currentGear: 1
@@ -906,13 +933,12 @@ MonoBehaviour:
   - 0.5
   differentialRatio: 3.42
   transmissionEfficiency: 0.7
-  wheelRadius: 0.34
   torqueLookupTable:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1014.2997
-      value: 399.66656
+      time: 0
+      value: 101.221405
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -920,17 +946,17 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2005.4042
-      value: 429.93375
-      inSlope: 0.025411356
-      outSlope: 0.025411356
+      time: 1021.72314
+      value: 134.34921
+      inSlope: 0.026446003
+      outSlope: 0.026446003
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2996.5093
-      value: 450.0372
+      time: 2012.8282
+      value: 154.45267
       inSlope: 0.032718126
       outSlope: 0.032718126
       tangentMode: 136
@@ -938,8 +964,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 3997.2837
-      value: 495.1043
+      time: 3013.6025
+      value: 199.51978
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -947,8 +973,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 6013.3364
-      value: 402.76093
+      time: 6000
+      value: 166.70322
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -959,10 +985,15 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   coefficientOfFriction: 0.3
-  frontalAreaOfCar: 2.2
+  frontalAreaOfCar: 1.1
   densityOfAir: 1.29
   rpmField: {fileID: 348364733}
   speedField: {fileID: 436636160}
+--- !u!4 &1739195531 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+  m_PrefabInstance: {fileID: 1529173130712046683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1861966846 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3288573119341002132, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
@@ -1092,11 +1123,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1143,7 +1174,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4085559755823063268, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085559755823063268, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085559755823063268, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      propertyPath: m_ImplicitCom
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5555454001221699837, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
@@ -1177,9 +1216,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2061778379525531465, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 963194228}
+    - targetCorrespondingSourceObject: {fileID: 2131385252040015733, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1430570612}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7365846148470993579, guid: 928c8fa8ee19a614b8458ffc655fb6d7, type: 3}
       insertIndex: -1
