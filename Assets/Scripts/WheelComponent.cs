@@ -11,6 +11,11 @@ public class WheelComponent : MonoBehaviour
     public float DriveTorque { get => driveTorque; set => driveTorque = value; }
     public float BrakeTorque { get => brakeTorque; set => brakeTorque = value; }
 
+    public float RPM { get => rpm; }
+
+    public float Radius { get => radius; }
+
+
     [Header("Grip")]
     [SerializeField] private float gripFactor = 0.4f; // TODO: Lookup table
 
@@ -28,10 +33,21 @@ public class WheelComponent : MonoBehaviour
     private float groundDist;
     private float crtTorque;
     private Vector3 perpForce;
+    private float rpm;
 
     private void Update()
     {
         CheckWheelGrounded();
+
+        if (perpForce.magnitude > (driveTorque * transform.forward).magnitude && driveTorque > 0)
+        {
+            Debug.Log("Slipping");
+        }
+
+        Vector3 tireWorldVelocity = vehicleRB.GetPointVelocity(transform.position);
+        float forwardVelocity = Vector3.Dot(transform.forward, tireWorldVelocity);
+        rpm = forwardVelocity / (2.0f * Mathf.PI * radius);
+        wheelMesh.transform.Rotate(rpm * 360.0f * Time.deltaTime, 0.0f, 0.0f);
     }
 
     private void CheckWheelGrounded()
@@ -42,13 +58,6 @@ public class WheelComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 tireWorldVelocity = vehicleRB.GetPointVelocity(transform.position);
-        float forwardVelocity = Vector3.Dot(transform.forward, tireWorldVelocity);
-
-        float distanceTraveled = forwardVelocity * Time.fixedDeltaTime;
-        float angularDistance = distanceTraveled / (2.0f * Mathf.PI * radius);
-        wheelMesh.transform.Rotate(angularDistance * 360.0f, 0.0f, 0.0f);
-
         if (!grounded) { return; }
 
         CalcSuspensionForce();
@@ -65,8 +74,6 @@ public class WheelComponent : MonoBehaviour
         float velocity = Vector3.Dot(springDir, tireWorldVelocity);
         float force = (offset * strength) - (velocity * damping);
         vehicleRB.AddForceAtPosition(springDir * force, transform.position);
-        Debug.Log(groundDist);
-
     }
 
     private void CalcPerpForce()
